@@ -6,11 +6,12 @@ const Home = () => {
     <div
       style={{
         width: "100vw",
+        height: "100vh",
         textAlign: "center",
         display: "flex",
         justifyContent: "center",
         flexDirection: "column",
-        alignItems: "center",
+        alignItems: "center"
       }}
     >
       <div>What do you want to do today?</div>
