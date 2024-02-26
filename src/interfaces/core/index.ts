@@ -1,1 +1,1 @@
-export type { Idol } from "./Idols";
+export type { Idol } from "./Idol";
