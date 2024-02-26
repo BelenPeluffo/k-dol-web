@@ -1,3 +1,4 @@
+import { mockData } from ".";
 import { Idol } from "../interfaces/core";
 import { IdolsService as IdolInterface } from "../interfaces/services/IdolsService";
 
@@ -6,7 +7,7 @@ export class IdolService implements IdolInterface {
     throw new Error("Method not implemented.");
   }
   getAll(): Idol[] {
-    throw new Error("Method not implemented.");
+    return mockData;
   }
   add(idol: Idol): void {
     throw new Error("Method not implemented.");
