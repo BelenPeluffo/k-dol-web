@@ -1,6 +1,6 @@
-export interface Idol {
-  name: string;
-  id?: number;
+import { Entity } from "./Entity";
+
+export interface Idol extends Entity {
   sun?: number;
   moon?: number;
   rising?: number;

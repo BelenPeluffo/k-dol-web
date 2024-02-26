@@ -2,6 +2,7 @@ import { mockData } from ".";
 import { Idol } from "../interfaces/core";
 import { IdolsService as IdolInterface } from "../interfaces/services/IdolsService";
 
+
 export class IdolService implements IdolInterface {
   get(id: number): Idol {
     throw new Error("Method not implemented.");

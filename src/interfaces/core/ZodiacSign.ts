@@ -1,3 +1,5 @@
+import { Entity } from "./Entity";
+
 export type Sign =
   | "Capricorn"
   | "Aquarius"
@@ -12,7 +14,6 @@ export type Sign =
   | "Scorpio"
   | "Sagittarius";
 
-export interface ZodiacSign {
-  id: number;
+export interface ZodiacSign extends Entity {
   name: Sign;
 }
