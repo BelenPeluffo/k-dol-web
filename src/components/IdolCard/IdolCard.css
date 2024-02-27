@@ -6,8 +6,13 @@ button.collapsible {
   text-align: left;
 }
 
-button.collapsible:focus {
+button.collapsible:focus,
+button.collapsible:focus-visible {
   outline: none;
+}
+
+button.collapsible:hover {
+  border-color: coral;
 }
 
 .container {

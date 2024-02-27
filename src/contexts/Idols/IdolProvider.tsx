@@ -6,6 +6,8 @@ import { Idol } from "../../interfaces/core";
 const IdolProvider = ({ children }: { children: ReactNode }) => {
   const service = new IdolService();
   const [idols, setIdols] = useState<Idol[] | null>(null);
+  const [apiResponse, setApiResponse] = useState(false);
+  console.log('apiResponse state?', apiResponse);
 
   useEffect(() => {
     console.log("Idols cambió. Idols:", idols);
@@ -14,22 +16,27 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
   }, [idols]);
 
   const handleGetAllIdols = () => {
+    setApiResponse(false);
     const response = service.get();
     setIdols(response);
   };
 
   const handleDelete = (id: number) => {
+    setApiResponse(false);
     console.log("removing ID", id);
     const response = service.remove(id);
     console.log('delete response?', response);
     setIdols(response);
   };
 
-  const handleCreate = (idol) => {
-    const response = service.add(idol);
+  const handleCreate = (idol: Idol) => {
+    console.log('handleCreate');
+    setApiResponse(false);
+    service.add(idol);
+    setApiResponse(true);
   }
 
-  const state: IdolState = { idols, handleGetAllIdols, handleDelete, handleCreate };
+  const state: IdolState = { idols, handleGetAllIdols, handleDelete, handleCreate, apiResponse };
   return <IdolContext.Provider value={state}>{children}</IdolContext.Provider>;
 };
 
