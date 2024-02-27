@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { useGenericForm } from "../hooks";
+import { useGenericForm } from "../../hooks";
 
 const IdolForm = ({ actions }: { actions?: ReactNode[] }) => {
   const { createPositionsFormField } = useGenericForm();

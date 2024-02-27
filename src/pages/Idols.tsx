@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { IdolContext } from "../contexts/Idols";
 import { Idol } from "../interfaces/core";
 import { IdolState } from "../contexts/Idols/IdolContext";
-import { FooterActions } from "../components";
+import { FooterActions, IdolCard } from "../components";
 import { useNavigate } from "react-router-dom";
 
 const Idols = () => {
@@ -30,7 +30,7 @@ const Idols = () => {
         </div>
         <div>
           {idols && idols.length > 0
-            ? idols.map((idol: Idol) => idol.name)
+            ? idols.map((idol: Idol) => <IdolCard idol={idol} key={idol.id} />)
             : "There's no idols in your DB."}
         </div>
       </div>
