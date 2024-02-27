@@ -1,1 +1,28 @@
+button.collapsible {
+  border-radius: 0;
+  background-color: transparent;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
 
+button.collapsible:focus {
+  outline: none;
+}
+
+.container {
+  transition: 0.2s ease-out;
+}
+
+.container.active {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background-color: coral;
+  margin: 8px;
+}
+
+.panel {
+  padding: 8px;
+  flex-direction: column;
+  overflow: hidden;
+}

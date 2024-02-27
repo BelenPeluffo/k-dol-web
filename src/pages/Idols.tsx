@@ -16,7 +16,14 @@ const Idols = () => {
 
   return (
     <>
-      <div style={{ width: "100vw", height: "100vh", padding: 8 }}>
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          padding: 8,
+          boxSizing: "border-box",
+        }}
+      >
         <div
           style={{
             fontWeight: 600,
