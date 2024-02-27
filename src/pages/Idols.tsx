@@ -6,10 +6,12 @@ import { FooterActions, IdolCard } from "../components";
 import { useNavigate } from "react-router-dom";
 
 const Idols = () => {
-  const { idols, handleDelete } = useContext<IdolState | null>(IdolContext);
+  const { idols, handleDelete, prepareEditting } = useContext<IdolState | null>(
+    IdolContext
+  );
   const navigation = useNavigate();
   const [selectedIdol, setSelectedIdol] = useState(0);
-  console.log('Idols. Cambia idols?',idols);
+  console.log("Idols. Cambia idols?", idols);
 
   const footerActions = [
     <button>Filter</button>,
@@ -45,8 +47,9 @@ const Idols = () => {
                   key={idol.id}
                   selected={selectedIdol}
                   onSelected={(id) => setSelectedIdol(id)}
-                  onEdit={function (): void {
-                    throw new Error("Function not implemented.");
+                  onEdit={() => {
+                    prepareEditting(idol.id);
+                    navigation(`/idols/${idol.id}`);
                   }}
                   onDelete={handleDelete}
                 />
