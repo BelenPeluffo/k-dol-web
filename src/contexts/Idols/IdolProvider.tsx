@@ -38,6 +38,12 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
     setApiResponse(true);
   };
 
+  const handleEdit = (idol: Idol) => {
+    setApiResponse(false);
+    service.update(idol);
+    setApiResponse(true);
+  }
+
   const prepareEditting = (id: number) => {
     const response = service.get(id);
     setIdol(response[0]);
@@ -50,7 +56,8 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
     handleCreate,
     apiResponse,
     prepareEditting,
-    idol
+    idol,
+    handleEdit
   };
   return <IdolContext.Provider value={state}>{children}</IdolContext.Provider>;
 };

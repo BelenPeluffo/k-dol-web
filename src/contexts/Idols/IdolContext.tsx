@@ -9,6 +9,7 @@ export interface IdolState {
   apiResponse: boolean;
   prepareEditting: (id: number) => void;
   idol: Idol | null;
+  handleEdit: (idol: Idol) => void;
 }
 
 export const IdolContext = createContext<IdolState | null>(null);

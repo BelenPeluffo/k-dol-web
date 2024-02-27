@@ -5,7 +5,7 @@ import { Idol } from "../interfaces/core";
 import { FooterActions, IdolForm, Modal } from "../components";
 
 const EditIdol = () => {
-  const { idol: apiIdol, apiResponse } = useContext(IdolContext);
+  const { idol: apiIdol, apiResponse, handleEdit: handleEditService } = useContext(IdolContext);
   const navigation = useNavigate();
   const [idol, setIdol] = useState<Idol | null>(apiIdol);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +24,7 @@ const EditIdol = () => {
   const handleEdit = () => {
     if (idol) {
       console.log("Trying to edit");
-      // handleCreateService(idol);
+      handleEditService(idol);
       if (apiResponse) {
         setIsModalOpen(true);
       }
