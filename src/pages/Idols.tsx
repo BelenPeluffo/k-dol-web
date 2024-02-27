@@ -29,7 +29,7 @@ const Idols = () => {
           Idols
         </div>
         <div>
-          {idols.length > 0
+          {idols && idols.length > 0
             ? idols.map((idol: Idol) => idol.name)
             : "There's no idols in your DB."}
         </div>

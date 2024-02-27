@@ -9,6 +9,7 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
 
   useEffect(() => {
     handleGetAllIdols();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleGetAllIdols = () => {
