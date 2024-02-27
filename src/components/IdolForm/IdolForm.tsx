@@ -45,7 +45,6 @@ const IdolForm = ({
       </div>
       <div
         style={{
-          width: "100%",
           display: "flex",
           justifyContent: "center",
           gap: 4,
