@@ -1,7 +1,13 @@
 import { ReactNode } from "react";
 import { useGenericForm } from "../../hooks";
 
-const IdolForm = ({ actions }: { actions?: ReactNode[] }) => {
+const IdolForm = ({
+  actions,
+  onDataChange,
+}: {
+  actions?: ReactNode[];
+  onDataChange: (field: string, value: string | number) => void;
+}) => {
   const { createPositionsFormField } = useGenericForm();
   return (
     <div
@@ -14,7 +20,12 @@ const IdolForm = ({ actions }: { actions?: ReactNode[] }) => {
     >
       <div style={{ display: "flex", flexDirection: "column" }}>
         <label htmlFor="name">Name</label>
-        <input type="text" name="name" id="name" />
+        <input
+          type="text"
+          name="name"
+          id="name"
+          onChange={(event) => onDataChange("name", event.target.value)}
+        />
       </div>
       <div
         style={{
@@ -26,7 +37,7 @@ const IdolForm = ({ actions }: { actions?: ReactNode[] }) => {
           gap: 4,
         }}
       >
-        {createPositionsFormField()}
+        {createPositionsFormField(onDataChange)}
       </div>
       <div
         style={{
