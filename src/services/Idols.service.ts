@@ -7,11 +7,16 @@ export class IdolService implements IdolInterface {
   constructor() {
     this.db = mockData;
   }
-  get(id?: number): Idol[] {
-    if (!id) {
-      return this.db;
+  get(filters?: Partial<Idol>): Idol[] {
+    if (filters) {
+      if (filters.id) {
+        return this.db.filter((data) => data.id === filters.id);
+      } else if (!filters.id) {
+        console.log("Ésto se va a descontrolar");
+        // return;
+      }
     }
-    return this.db.filter((data) => data.id === id);
+    return this.db;
   }
   add(idol: Idol): void {
     console.log("Adding idol:", idol.name);
@@ -27,7 +32,7 @@ export class IdolService implements IdolInterface {
     return this.db;
   }
   update(idol: Idol): Idol[] {
-    const {id} = idol;
+    const { id } = idol;
     const newData = this.db.filter((idol) => idol.id !== id);
     this.db = newData;
     console.log("this.db before pushing?", this.db);

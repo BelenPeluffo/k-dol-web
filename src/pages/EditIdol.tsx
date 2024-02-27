@@ -16,7 +16,7 @@ const EditIdol = () => {
 
   const footerActions = [
     <button onClick={() => navigation(-1)}>Go back to idols</button>,
-    <button>Create new idol</button>,
+    <button onClick={() => navigation("/idols/create")}>Create new idol</button>,
   ];
 
   const handleChangeData = (field: string, value: string | number) => {

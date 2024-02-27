@@ -47,7 +47,7 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
   }
 
   const prepareEditting = (id: number) => {
-    const response = service.get(id);
+    const response = service.get({id});
     setIdol(response[0]);
   }
 
