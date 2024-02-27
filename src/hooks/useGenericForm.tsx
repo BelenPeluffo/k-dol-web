@@ -1,5 +1,5 @@
-import { planets, zodiacSigns } from "../../constants";
-import { ZodiacSign } from "../../interfaces/core";
+import { planets, zodiacSigns } from "../constants";
+import { ZodiacSign } from "../interfaces/core";
 
 const useGenericForm = () => {
   const createPositionsFormField = (
