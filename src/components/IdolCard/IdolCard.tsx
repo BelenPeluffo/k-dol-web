@@ -2,20 +2,30 @@ import { useState } from "react";
 import { Idol } from "../../interfaces/core";
 import "./IdolCard.css";
 
-const IdolCard = ({ idol }: { idol: Idol }) => {
-  const [isActive, setIsActive] = useState(false);
+const IdolCard = ({
+  idol,
+  selected,
+  onSelected,
+}: {
+  idol: Idol;
+  onSelected: (id: number) => void;
+  selected: number;
+}) => {
+  console.log("selected?", selected);
   return (
-    <div className={`container ${isActive ? "active" : ""}`}>
+    <div className={`container ${selected === idol.id ? "active" : ""}`}>
       <button
-        className={`collapsible ${isActive ? "active" : ""}`}
-        onClick={() => setIsActive(!isActive)}
+        className={`collapsible ${selected === idol.id ? "active" : ""}`}
+        onClick={() => {
+          onSelected(selected !== idol.id ? idol.id : 0);
+        }}
       >
         {idol.name}
       </button>
       <div
         className="panel"
         style={{
-          display: isActive ? "flex" : "none",
+          display: selected === idol.id ? "flex" : "none",
         }}
       >
         {Object.keys(idol).map((property) => `${property}: ${idol[property]}`)}
