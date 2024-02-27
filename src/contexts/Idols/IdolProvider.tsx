@@ -25,7 +25,11 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
     setIdols(response);
   };
 
-  const state: IdolState = { idols, handleGetAllIdols, handleDelete };
+  const handleCreate = (idol) => {
+    const response = service.add(idol);
+  }
+
+  const state: IdolState = { idols, handleGetAllIdols, handleDelete, handleCreate };
   return <IdolContext.Provider value={state}>{children}</IdolContext.Provider>;
 };
 

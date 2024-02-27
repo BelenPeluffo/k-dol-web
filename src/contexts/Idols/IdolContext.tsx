@@ -5,6 +5,7 @@ export interface IdolState {
   idols: Idol[] | null;
   handleGetAllIdols: () => void;
   handleDelete: (id: number) => void;
+  handleCreate: (idol: Idol) => void;
 }
 
 export const IdolContext = createContext<IdolState | null>(null);
