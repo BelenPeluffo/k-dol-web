@@ -1,12 +1,15 @@
 import { ReactNode } from "react";
 import { useGenericForm } from "../../hooks";
+import { Idol } from "../../interfaces/core";
 
 const IdolForm = ({
   actions,
   onDataChange,
+  initialData
 }: {
   actions?: ReactNode[];
   onDataChange: (field: string, value: string | number) => void;
+  initialData?: Idol;
 }) => {
   const { createPositionsFormField } = useGenericForm();
   return (
@@ -37,7 +40,7 @@ const IdolForm = ({
           gap: 4,
         }}
       >
-        {createPositionsFormField(onDataChange)}
+        {createPositionsFormField(onDataChange, initialData)}
       </div>
       <div
         style={{

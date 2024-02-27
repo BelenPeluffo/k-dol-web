@@ -1,10 +1,10 @@
 import { planets, zodiacSigns } from "../constants";
-import { ZodiacSign } from "../interfaces/core";
+import { Idol, ZodiacSign } from "../interfaces/core";
 
 const useGenericForm = () => {
   const createPositionsFormField = (
     onChange?: (field: string, value: string | number) => void,
-    intialValues?: []
+    intialValues?: Idol
   ) => {
     return planets.map((planet) => (
       <div style={{ display: "flex", flexDirection: "column", width: "48%" }}>
@@ -18,6 +18,7 @@ const useGenericForm = () => {
             console.log('onChange?', onChange);
             onChange?.(planet, event.target.value);
           }}
+          value={intialValues ? intialValues[planet] : 0}
         >
           <option value={0}>Select a sign...</option>
           {zodiacSigns.map((zodiacSign: ZodiacSign) => (
