@@ -8,16 +8,24 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
   const [idols, setIdols] = useState<Idol[] | null>(null);
 
   useEffect(() => {
+    console.log("Idols cambió. Idols:", idols);
     handleGetAllIdols();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [idols]);
 
   const handleGetAllIdols = () => {
     const response = service.get();
     setIdols(response);
   };
 
-  const state: IdolState = { idols, handleGetAllIdols };
+  const handleDelete = (id: number) => {
+    console.log("removing ID", id);
+    const response = service.remove(id);
+    console.log('delete response?', response);
+    setIdols(response);
+  };
+
+  const state: IdolState = { idols, handleGetAllIdols, handleDelete };
   return <IdolContext.Provider value={state}>{children}</IdolContext.Provider>;
 };
 
