@@ -10,6 +10,7 @@ export interface IdolState {
   prepareEditting: (id: number) => void;
   idol: Idol | null;
   handleEdit: (idol: Idol) => void;
+  setIdol: (value: React.SetStateAction<Idol | null>) => void;
 }
 
 export const IdolContext = createContext<IdolState | null>(null);

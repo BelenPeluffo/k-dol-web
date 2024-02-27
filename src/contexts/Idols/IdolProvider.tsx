@@ -15,7 +15,7 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
     console.log("Idols cambió. Idols:", idols);
     handleGetAllIdols();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [idols]);
+  }, []);
 
   const handleGetAllIdols = () => {
     setApiResponse(false);
@@ -40,7 +40,9 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
 
   const handleEdit = (idol: Idol) => {
     setApiResponse(false);
-    service.update(idol);
+    const response = service.update(idol);
+    console.log("handleEdit response?", response);
+    setIdols(response);
     setApiResponse(true);
   }
 
@@ -57,7 +59,8 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
     apiResponse,
     prepareEditting,
     idol,
-    handleEdit
+    handleEdit,
+    setIdol,
   };
   return <IdolContext.Provider value={state}>{children}</IdolContext.Provider>;
 };

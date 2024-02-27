@@ -1,13 +1,17 @@
 import { useContext, useState } from "react";
 import { IdolContext } from "../contexts/Idols";
 import { useNavigate } from "react-router-dom";
-import { Idol } from "../interfaces/core";
 import { FooterActions, IdolForm, Modal } from "../components";
+import { Idol } from "../interfaces/core";
 
 const EditIdol = () => {
-  const { idol: apiIdol, apiResponse, handleEdit: handleEditService } = useContext(IdolContext);
+  const {
+    idol,
+    setIdol,
+    apiResponse,
+    handleEdit: handleEditService,
+  } = useContext(IdolContext);
   const navigation = useNavigate();
-  const [idol, setIdol] = useState<Idol | null>(apiIdol);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const footerActions = [
@@ -16,7 +20,7 @@ const EditIdol = () => {
   ];
 
   const handleChangeData = (field: string, value: string | number) => {
-    setIdol((current) => {
+    setIdol((current: Idol) => {
       return current ? { ...current, [field.toLowerCase()]: value } : null;
     });
   };
@@ -25,9 +29,9 @@ const EditIdol = () => {
     if (idol) {
       console.log("Trying to edit");
       handleEditService(idol);
-      if (apiResponse) {
-        setIsModalOpen(true);
-      }
+      // if (apiResponse) {
+      //   setIsModalOpen(true);
+      // }
     }
   };
 
