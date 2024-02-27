@@ -31,11 +31,15 @@ const IdolCard = ({
           display: selected === idol.id ? "flex" : "none",
         }}
       >
-        {Object.keys(idol).map((property) => (
-          <div>
-            {property}: {idol[property]}
-          </div>
-        ))}
+        {Object.keys(idol).length > 2
+          ? Object.keys(idol).map((property) =>
+              property !== "id" && property !== "name" ? (
+                <div>
+                  {property}: {idol[property]}
+                </div>
+              ) : null
+            )
+          : "No data"}
         <div>
           <button onClick={onEdit}>Edit</button>
           <button onClick={() => onDelete(idol.id)}>Delete</button>
