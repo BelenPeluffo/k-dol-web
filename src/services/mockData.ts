@@ -2,11 +2,11 @@ import { Idol } from "../interfaces/core";
 
 export const mockData: Idol[] = [
   {
-    id: 0,
+    id: 1,
     name: "Soyeon",
   },
   {
-    id: 1,
+    id: 2,
     name: "Yuqi",
   },
 ];

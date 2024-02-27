@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Idol } from "../../interfaces/core";
 import "./IdolCard.css";
 

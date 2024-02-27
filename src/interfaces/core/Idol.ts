@@ -1,6 +1,7 @@
 import { Entity } from "./Entity";
 
 export interface Idol extends Entity {
+  [index: string]: string | number | undefined;
   sun?: number;
   moon?: number;
   rising?: number;
