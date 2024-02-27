@@ -13,7 +13,7 @@ const IdolProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const handleGetAllIdols = () => {
-    const response = service.getAll();
+    const response = service.get();
     setIdols(response);
   };
 
