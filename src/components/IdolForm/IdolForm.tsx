@@ -28,6 +28,7 @@ const IdolForm = ({
           name="name"
           id="name"
           onChange={(event) => onDataChange("name", event.target.value)}
+          value={initialData && initialData.name ? initialData.name : undefined}
         />
       </div>
       <div
