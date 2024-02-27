@@ -14,7 +14,9 @@ export class IdolService implements IdolInterface {
     return this.db.filter((data) => data.id === id);
   }
   add(idol: Idol): void {
-    throw new Error("Method not implemented.");
+    console.log("Adding idol:", idol.name);
+    console.log('idol?', idol);
+    this.db.push({...idol, id: this.db.length + 1});
   }
   remove(id: number): Idol[] {
     // const newData = mockData.filter((idol) => idol.id !== id);
