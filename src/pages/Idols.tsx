@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { IdolContext } from "../contexts/Idols";
 import { Idol } from "../interfaces/core";
 import { IdolState } from "../contexts/Idols/IdolContext";
@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 const Idols = () => {
   const { idols } = useContext<IdolState | null>(IdolContext);
   const navigation = useNavigate();
+  const [selectedIdol, setSelectedIdol] = useState(0);
 
   const footerActions = [
     <button>Filter</button>,
@@ -37,7 +38,14 @@ const Idols = () => {
         </div>
         <div>
           {idols && idols.length > 0
-            ? idols.map((idol: Idol) => <IdolCard idol={idol} key={idol.id} />)
+            ? idols.map((idol: Idol) => (
+                <IdolCard
+                  idol={idol}
+                  key={idol.id}
+                  selected={selectedIdol}
+                  onSelected={(id) => setSelectedIdol(id)}
+                />
+              ))
             : "There's no idols in your DB."}
         </div>
       </div>
