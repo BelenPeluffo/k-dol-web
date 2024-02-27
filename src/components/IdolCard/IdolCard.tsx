@@ -5,10 +5,14 @@ const IdolCard = ({
   idol,
   selected,
   onSelected,
+  onEdit,
+  onDelete,
 }: {
   idol: Idol;
   onSelected: (id: number) => void;
   selected: number;
+  onEdit: () => void;
+  onDelete: (id: number) => void;
 }) => {
   console.log("selected?", selected);
   return (
@@ -27,7 +31,15 @@ const IdolCard = ({
           display: selected === idol.id ? "flex" : "none",
         }}
       >
-        {Object.keys(idol).map((property) => `${property}: ${idol[property]}`)}
+        {Object.keys(idol).map((property) => (
+          <div>
+            {property}: {idol[property]}
+          </div>
+        ))}
+        <div>
+          <button onClick={onEdit}>Edit</button>
+          <button onClick={() => onDelete(idol.id)}>Delete</button>
+        </div>
       </div>
     </div>
   );
